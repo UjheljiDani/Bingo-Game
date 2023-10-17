@@ -50,8 +50,15 @@ function generatebuttonHandler() {
   table.style.border = "1px solid black";
   table.style.border = "none";
   let items = document.querySelectorAll("td");
+  let container = [];
   items.forEach((item) => {
-    item.innerHTML = Math.floor(Math.random() * 100);
+    let randomNum =  Math.floor(Math.random() * 100);
+
+    while(container.includes(randomNum)){
+      randomNum =  Math.floor(Math.random() * 100);
+    }
+    item.innerHTML = randomNum;
+    container.push(randomNum);
   });
   items[12].innerHTML = "FREE";
 
